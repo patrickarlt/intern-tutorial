@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tutorial: Hello Dojo!</title>
+</head>
+<body>
+    <h1 id="greeting">Hello</h1>
+    <script>
+      var dojoConfig = {
+          async: true,
+          packages: [{
+              name: "app",
+              location: location.pathname.replace(/\/[^/]*$/, '')
+          }]
+      };
+    </script>
+    <script src="../dojo/dojo/dojo.js" data-dojo-config="async: true"></script>
+    <script>
+    require([
+      "app/Greeter"
+    ],function (Greeter) {
+      var greeter = new Greeter();
+      document.getElementById("greeting").innerHTML = greeter.greet();
+    });</script>
+</body>
+</html>
